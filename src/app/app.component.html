@@ -1,0 +1,52 @@
+<body>
+<h1>Student Details!!!</h1>
+<div class="container">
+  <form #myForm = ngForm>
+    <div class="form-group">
+      <label for="exampleInputId1">ID </label>
+      <input type="number" class="form-control" name="id" required  aria-describedby="emailHelp" [(ngModel)]="userObj.id">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputName1">Name </label>
+      <input type="text" class="form-control" name="name" required  aria-describedby="emailHelp" [(ngModel)]="userObj.name">
+    </div><div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" name="email" required  aria-describedby="emailHelp" [(ngModel)]="userObj.email">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputMarks1">Marks</label>
+      <input type="number" class="form-control"  name="marks" required  [(ngModel)]="userObj.marks">
+    </div>
+   
+
+    <button type="button" class="btn btn-primary" [disabled]="!myForm.valid" (click)="addUser(myForm.value)"
+    *ngIf="!isEdit">Submit</button>
+
+    <br><br>
+    <button type="button" class="btn btn-info"  *ngIf="isEdit" (click)="updateUser()">Update</button>
+  </form>
+  <br><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Marks</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let user of allUser">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.marks }}</td>
+        <td><button (click)="editUser(user)" class="btn btn-warning">Edit</button></td>
+        <td><button (click)="deleteUser(user)" class="btn btn-danger">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>

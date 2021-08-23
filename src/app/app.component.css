@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+    background-color: lightgray;
+
+}
+
+body{
+    background-color: lightgray;
+
+}
+form-group{
+    border: 1px solid rgb(5, 5, 5);
+    padding: 8px;
+}
+table {
+    width: 100%;
+  }
+  table, th, td ,tr{
+    border: 1px solid rgb(5, 5, 5);
+    padding: 8px;
+  }
+   tr:nth-child(even){background-color: #ccdbda;}
+th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
