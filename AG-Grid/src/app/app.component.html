@@ -1,0 +1,65 @@
+
+<body>
+<br><br>
+<br><br>
+
+<h1 style="color: rgb(104, 25, 5);">Your details !!</h1>
+<form #userForm="ngForm" >
+
+  <input id="myId" class="input-field" size="50"
+   type="text"  (keyup)="getValue1(box.value)"
+  [ngStyle]="{'color' : user.length > 10 ? 'red' : 'blue'}" 
+  [ngClass]="{'input-field' : user.length > 10, 'my-class': user.length > 100}" 
+  name="user"  #box  placeholder="Enter your name" required [(ngModel)]="user" />
+  <br><br>
+  <p [ngStyle]="{'color' : user.length > 10 ? 'red' : 'blue'}" 
+    [ngClass]="{'input-field' : user.length > 10, 'my-class': user.length > 100}" >{{ currentVal }}</p>
+    <br><br>
+  <input id="myId" class="input-field" size="50" 
+  (keyup)="getValue2(box1.value)"
+  [ngStyle]="{'color' : address.length > 10 ? 'red' : 'blue'}" 
+  [ngClass]="{'input-field' : address.length > 10, 'my-class': address.length > 100}" 
+  type="text"  name="address"  #box1  placeholder="Enter your address" required [(ngModel)]="address" />
+  <br><br>
+  <p [ngStyle]="{'color' : address.length > 10 ? 'red' : 'blue'}" 
+    [ngClass]="{'input-field' : address.length > 10, 'my-class': address.length > 100}" >{{ currentVal1 }}</p>
+  <br><br>
+  <button class="button " [disabled]="!userForm.valid" (click)="getValue(box.value,box1.value)" >Get What you entered </button>
+  <br><br>
+
+</form>
+
+<h1   [ngStyle]="{'color' : displayVal.length > 10 ? 'red' : 'blue'}" 
+  [ngClass]="{'input-field' : displayVal.length > 10, 'my-class': displayVal.length > 100}" 
+  [ngStyle]="{'color' : displayVal1.length > 10 ? 'red' : 'blue'}" 
+  [ngClass]="{'input-field' : displayVal1.length > 10, 'my-class': displayVal1.length > 100}" >
+  <br>
+   Value is   : {{  displayVal }} {{ displayVal1 }}</h1>
+  
+   <p>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
+<div>
+  <label>
+    <span *ngFor = "let input of user.split('')"
+    [ngClass]= "{'bold-class' : vowels.indexOf(input) != -1}">
+    {{ input }}
+
+    </span>
+    <span *ngFor = "let input of address.split('')"
+    [ngClass]= "{'bold-class' : vowels.indexOf(input) != -1}">
+    {{ input }}
+
+    </span>
+  </label>
+</div>
+
+<h1   [ngStyle]="{'color' : displayVal.length > 10 ? 'red' : 'blue'}" 
+    [ngClass]="{'input-field' : displayVal.length > 10, 'my-class': displayVal.length > 100}" 
+    [ngStyle]="{'color' : displayVal1.length > 10 ? 'red' : 'blue'}" 
+    [ngClass]="{'input-field' : displayVal1.length > 10, 'my-class': displayVal1.length > 100}" >
+    <br>
+     Value In loweCase(first) and uppercase(last)   : {{  displayVal | lowercase }} {{ displayVal1 | uppercase }}</h1>
+    
+
+
+</body>
